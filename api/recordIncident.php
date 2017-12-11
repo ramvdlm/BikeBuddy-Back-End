@@ -21,23 +21,13 @@ $db = new DBFunctions();
 // Retrieve parameters
 $latitude = $request['latitude'];
 $longitude = $request['longitude'];
-$ambulance = $request['ambulance'];
-$biker_age = $request['biker_age'];
-$bike_direction = $request['bike_direction'];
-$biker_injury = $request['biker_injury'];
-$bike_position = $request['bike_position'];
-$biker_race = $request['biker_race'];
-$biker_sex = $request['biker_sex'];
-$city = $request['city'];
-$county = $request['county'];
-$day = $request['day'];
-$location_of_crash = $request['location_of_crash'];
-$month = $request['month'];
+$crash_severity = $request['crash_severity'];
+$notes = $request['notes'];
 $time = $request['time'];
+$date = $request['date'];
 
 //Get the team data
-$result = $db->recordIncident($latitude, $longitude, $ambulance, $biker_age, $bike_direction, $bike_position,
-  $biker_race, $biker_sex, $city, $county, $day, $location_of_crash, $time);
+$result = $db->recordIncident($latitude, $longitude, $crash_severity, $notes, $time, $date);
 
 // Build response
 if($result) {
